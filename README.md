@@ -7,8 +7,9 @@ Boris Bikes are public bicycles available for rent at designated stations across
 
 --------------Testing Area-------------------
 
-*Step 1.README.md
-*Step 2.User Story into a Domain Model:
+Step 1.README.md
+
+Step 2.User Story into a Domain Model:
 
 
 |Objects | Messages                |
@@ -16,3 +17,5 @@ Boris Bikes are public bicycles available for rent at designated stations across
 |Person  |                         |
 |Bike    |docking_station_with_bike|
 |Bike    |find_working_bike        |
+
+
