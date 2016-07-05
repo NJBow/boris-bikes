@@ -36,4 +36,43 @@ Feature Testing, changes to new functionality or significantly modifies function
 
 stack trace provides map of functionality
 
+Step 4. Errors are good:
+
+```ERROR MESSAGE```
+
+2.3.0 :001 > docking_station = DockingStation
+NameError: uninitialized constant DockingStation
+        from (irb):1
+        from /usr/local/rvm/rubies/ruby-2.3.0/bin/irb:11:in `<main>'
+
+
+```ERROR TYPE```
+
+error is NameError, caused by; uninitialized constant DockingStation
+
+```ERROR FILE PATH```
+
+File path error is:  from /usr/local/rvm/rubies/ruby-2.3.0/bin/irb
+
+```ERROR LINE NUMBER```
+
+error occuring in the irb file on line 11
+
+```ERROR MEANING```
+
+uninitialized constant DockingStation == Referred to a class or module that doesn't exist.
+
+```ERROR SOLUTION```
+
+Make DockingStation a Class or Module in a file located within current directory.
+
+Step 5.
+
+
+
+
+
+
+
+
 
