@@ -78,6 +78,13 @@ Rspec running and passing, no error.
 
 release_bike will return NoNameError due to no release_bike method within DockingStation class (Object's message is not called)
 
+**Step 8. Passing Rspec test**
+
+Rspec docking_station_spec.rb testing for release_bike method within DockingStation class.
+
+release_bike method with action made.
+
+**Step 9.
 
 
 
