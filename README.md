@@ -22,6 +22,6 @@ Step 2.User Story into a Domain Model:
 
 ```Communication Diagram```
 
-```Primary Object``` -> ```Reference Object``` -> ```Message```
+```Primary Object``` → ```Reference Object``` → ```Message```
 
-```Person``` -> ```Bike``` -> ```docking_station_with_bike```  (AND) ```find_working_bike```
+```Person``` → ```Bike``` → ```docking_station_with_bike```  (AND) ```find_working_bike```
