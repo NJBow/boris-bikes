@@ -72,6 +72,10 @@ Require, describe, spec and ruby files created.
 
 **Step 6.**
 
+Rspec running and passing, no error
+
+
+
 
 
 

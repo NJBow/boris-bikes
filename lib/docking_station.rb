@@ -1,2 +1,2 @@
-#def dockingstation
-#end
+class DockingStation
+end
