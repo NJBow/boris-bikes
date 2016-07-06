@@ -12,13 +12,25 @@ Boris Bikes are public bicycles available for rent at designated stations across
 **Step 2.User Story into a Domain Model:**
 
 
-|Objects        | Messages          |
-|---------------|:-----------------:|
-|Person         |                   |
-|Bike           |working?           |
-|DockingStation |release_bike       |
-
-
+|Objects        | Messages                    |
+|---------------|:---------------------------------------------------:|
+|**Question**|   **1**                                          |
+|Person         |                                             |
+|Bike           |working?                                             |
+|DockingStation |release_bike                                         |
+|**Question**   | **11**                   |
+|Person         |                                           |
+|DockingStation |dock_bike                                            |
+|DockingStation |bike_docked?                                         |
+| **Question**|    **12**                                         |
+|Person         |                                           |
+|DockingStation | bike_available? (-Didn't use this **Brainstorming**)|           
+|   **Question**  | **13**                    |
+|Maintainer     |                   |
+|DockingStation | bike_capacity (-Didn't use this **Brainstorming**)              |
+| **Question**|**14**|
+|Maintainer||
+|DockingStation|default_cap|
 
 ```Communication Diagram```
 
@@ -84,12 +96,132 @@ Rspec docking_station_spec.rb testing for release_bike method within DockingStat
 
 release_bike method with action made.
 
-**Step 9.
+**Step 9. bike method**
+
+```
+class DockingStation
+    class Bike
+         def working?
+             puts "Working"
+         end
+     end
+    def release_bike
+     bike = Bike.new
+     bike.working?
+    end
+end
+```
+
+Use of class heirachy allows for single file usage
+
+Whilst in irb; instantiating docking_station file to DockingStation class allows for 'working?' method within Bike class to be called
+
+Creating multiple files of docking_station.rb and bike.rb allows for simplicity and easier access
+
+**Step 10 + 11.Dock get bike**
+```
+require 'docking_station'
+
+describe DockingStation do
+
+  it 'responds to the method "release_bike"' do
+    expect(subject).to respond_to(:release_bike)
+  end
+
+  it 'releases working bikes' do
+    bike = subject.release_bike
+    expect(bike).to be_working
+  end
+  
+      it 'dock does something' do
+          is_expected.to respond_to(:dock).with(1).argument 
+      end
+  
+      it 'responds to bike' do
+          is_expected.to respond_to(:bike) 
+      end
+      
+      it { 
+          bike = Bike.new 
+      expect(subject.dock(bike)).to eq bike
+          
+      }
+      
+      it 'returns docked bikes' do
+          bike = Bike.new
+          subject.dock(bike)
+          expect(subject.bike).to eq bike
+      end
+end
+```
+
+Added Rspec's to test for the method working, liined p arguments with each method to see if it is passing.
+
+**General Rspec layout**
+```
+it 'a message describing the test' do
+expect(the method).to eq the argument output
+end
+```
+
+**Step 12. Raising exceptions**
+
+```
+   describe '#release_bike' do
+            it 'release a bike' do
+              bike = Bike.new
+            subject.dock(bike)
+          expect(subject.release_bike).to eq bike
+        end
+        it 'raises an error when there are no bikes available' do
+            expect { subject.release_bike }.to raise_error ('No bikes available')
+      end
+
+      it 'responds to the method "release_bike"' do
+           expect(subject).to respond_to(:release_bike)
+      end 
+     # it 
+     
+ ```
+Fail parameters for Rspec required within Method. Method parameter for above Rspec shown below:
+
+```
+  def release_bike
+        fail 'No bikes available' unless @bike
+        @bike
+    end
+    
+ ```
+ 
+ **Step 13. Limiting capacity**
+ 
+ Bike capacity created through dock method as shown in Rspec file:
 
 
+``` 
+ describe '#dock'do
+      #it 'dock a bike' do
+      
+      it 'raises an error if capacity full' do
+          subject.dock(Bike.new)
+       expect {subject.dock(Bike.new)}.to raise_error ('Bike capacity full')
+   end
+  end
+ ```
+ 
+ Here is the Method in the ruby file:
+ 
+ ```
+     def dock(bike)
+        fail 'Bike capacity full' if @bike
+        @bike=bike
+    end
+```
+
+**Step 14. Complex Attributes**
 
 
-
+ 
 
 
 
