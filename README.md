@@ -30,7 +30,7 @@ Boris Bikes are public bicycles available for rent at designated stations across
 |DockingStation | bike_capacity (-Didn't use this **Brainstorming**)              |
 | **Question**|**14**|
 |Maintainer||
-|DockingStation|default_cap|
+|DockingStation|default_cap (Didn'tuse this **Brainstorming**)|
 
 ```Communication Diagram```
 
@@ -220,6 +220,31 @@ Fail parameters for Rspec required within Method. Method parameter for above Rsp
 
 **Step 14. Complex Attributes**
 
+added a capacity of 20 to docking_station, allows for Rspc to run 20 bikes(objects) into the class.
+By filling the capacity then running a final object into the 'limitted' array we can fail the Rspec test as this is over the capacity
+
+code as follows:
+
+```
+    it 'raises an error if capacity is full' do
+      20.times {subject.dock(Bike.new)}
+      expect {subject.dock(Bike.new)}.to raise_error("Bike capacity full")
+    end
+```
+
+and the method within the ruby file:
+
+```
+    def release_bike
+        fail 'No bikes available' if @bikes.empty?
+        @bikes.pop
+    end
+
+    def dock(bike)
+        fail 'Bike capacity full' if @bikes.count >= 20 
+        @bikes << bike
+    end
+```
 
  
 
