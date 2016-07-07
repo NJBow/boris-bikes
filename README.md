@@ -268,6 +268,26 @@ full? and empty? methods created to define array size and function as follows:
 end
 
 ```
+**Step 16. Removing Magic Numbers**
+
+removed integer 20 and replaced it with a named constat 'DEFAULT_CONSTANT'
+
+```
+DEFAULT_CONSTANT = 20
+```
+
+replacing all 20 within ruby files and Rspec files
+
+when referring to constant in Rspec, must refer to class the constant is found in:
+
+```
+DockingStation::DEFAULT_CONSTANT.times xxxxx
+
+is the same as
+
+20.times xxxxx
+```
+
 
 
  
