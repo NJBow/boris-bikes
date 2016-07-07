@@ -86,6 +86,8 @@ Require, describe, spec and ruby files created.
 
 Rspec running and passing, no error.
 
+Rspec requires defined path of method to 'pass' the Rspec test
+
 **Step 7. use of feature.md**
 
 release_bike will return NoNameError due to no release_bike method within DockingStation class (Object's message is not called)
@@ -245,6 +247,28 @@ and the method within the ruby file:
         @bikes << bike
     end
 ```
+
+**Step 15. Single Responsibility principle**
+
+refactoring code and producing private methods to not interfere with Rspec testing
+
+full? and empty? methods created to define array size and function as follows:
+
+```
+    private
+    
+    def full?
+        @bikes.count >= 20
+    end
+    
+    def empty?
+    @bikes.empty?
+    end
+    
+end
+
+```
+
 
  
 
